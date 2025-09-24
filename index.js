@@ -16,9 +16,7 @@ io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
 
   socket.on("sendMessage", (data) => {
-    console.log("Message received:", data);
     io.emit("receiveMessage", data); // broadcast message
-    // Save message to DB here
   });
 
   socket.on("disconnect", () => {
